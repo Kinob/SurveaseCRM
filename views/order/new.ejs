@@ -1,0 +1,45 @@
+<div class="content">
+    <!-- START JUMBOTRON -->
+    <div class="jumbotron" data-pages="parallax">
+        <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+            <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="/" class="active">Dashboard</a></li>
+                    <li><a href="/order/" class="active">Order</a></li>
+                    <li>Add new</li>
+                </ul>
+                <!-- END BREADCRUMB -->
+            </div>
+        </div>
+    </div>
+    <!-- END JUMBOTRON -->
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <h1>Add new order for <%= customer.first_name %> <%= customer.last_name %></h1>
+
+        <form role="form" action="/order/create" method="post">
+            <input type="hidden" class="form-control" value="<%= customer.id %>" name="owner">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group form-group-default">
+                        <label>Product name</label>
+                        <input type="text" class="form-control" placeholder="ex: Õhtusöök" name="name" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group form-group-default">
+                        <label>Amount</label>
+                        <input type="text" class="form-control" placeholder="ex: Dow" name="total" required>
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="Add new order" class="btn btn-primary btn-cons">
+        </form>
+
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>

@@ -1,0 +1,46 @@
+<div class="content">
+    <!-- START JUMBOTRON -->
+    <div class="jumbotron" data-pages="parallax">
+        <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+            <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="/" class="active">Dashboard</a></li>
+                    <li><a href="/product/" class="active">Products</a></li>
+                    <li>Add new</li>
+                </ul>
+                <!-- END BREADCRUMB -->
+            </div>
+        </div>
+    </div>
+    <!-- END JUMBOTRON -->
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <h1>Add new customer profile</h1>
+
+        <form role="form" action="/product/create" method="post">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group form-group-default">
+                        <label>Product name</label>
+                        <input type="text" class="form-control" placeholder="ex: Õhtusöök kahele" name="name" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group form-group-default">
+                        <label>Price</label>
+                        <input type="text" class="form-control" placeholder="ex: 100,00" name="price" required>
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="Add new product" class="btn btn-primary btn-cons">
+        </form>
+
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>
+

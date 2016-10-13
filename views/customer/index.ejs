@@ -1,0 +1,48 @@
+<div class="content">
+    <!-- START JUMBOTRON -->
+    <div class="jumbotron" data-pages="parallax">
+        <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+            <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="/" class="active">Dashboard</a></li>
+                    <li>Customers</li>
+                </ul>
+                <!-- END BREADCRUMB -->
+            </div>
+        </div>
+    </div>
+    <!-- END JUMBOTRON -->
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+
+        <a href="/customer/new" class="btn btn-primary btn-cons">Add new customer</a>
+
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>E-mail</th>
+                <th>Language</th>
+                <th></th>
+            </tr>
+
+            <% _.each(customers, function(customer) { %>
+            <tr data-id="<%= customer.id %>" data-model="customer">
+                <td><%= customer.id %></td>
+                <td><%= customer.first_name %></td>
+                <td><%= customer.last_name %></td>
+                <td><%= customer.email %></td>
+                <td><%= customer.language %></td>
+                <td><a href="/customer/destroy/<%= customer.id %>" class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a href="/customer/edit/<%= customer.id %>" class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a href="/customer/show/<%= customer.id %>" class="btn btn-sm btn-primary btn-cons pull-right">View</a></td>
+            </tr>
+            <% })%>
+        </table>
+
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>
+

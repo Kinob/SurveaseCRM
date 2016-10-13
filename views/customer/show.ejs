@@ -1,0 +1,58 @@
+<div class="content">
+    <!-- START JUMBOTRON -->
+    <div class="jumbotron" data-pages="parallax">
+        <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+            <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="/" class="active">Dashboard</a></li>
+                    <li><a href="/customer/" class="active">Customers</a></li>
+                    <li><%= customer. first_name%> <%= customer.last_name%></li>
+                </ul>
+                <!-- END BREADCRUMB -->
+            </div>
+        </div>
+    </div>
+    <!-- END JUMBOTRON -->
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <h3>First name: <%= customer.first_name %></h3>
+        <h3>Last name: <%= customer.last_name %></h3>
+        <h3>Email: <%= customer.email %></h3>
+        <h3>Language: <%= customer.language %></h3>
+
+        <a href="/customer/edit/<%= customer.id %>" class="btn btn-primary btn-cons">Edit</a>
+        <hr>
+        <form action="/order/new" method="post">
+            <div class="row">
+                <input type="hidden" class="form-control" value="<%= customer.id %>" name="owner" required>
+                <input type="submit" value="Add new order" class="btn btn-primary btn-cons">
+            </div>
+        </form>
+        <hr>
+        <h3>Orders</h3>
+        <table class="table">
+            <tr>
+                <th>Order ID</th>
+                <th>Name</th>
+                <th>Cost</th>
+                <th></th>
+            </tr>
+
+            <% _.each(customer.orders, function(order) { %>
+            <tr data-id="<%= order.id %>" data-model="order">
+                <td><%= order.id %></td>
+                <td><%= order.name %></td>
+                <td><%= order.total %></td>
+                <td><a href="/order/destroy/<%= order.id %>" class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a href="/order/edit/<%= order.id %>" class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a href="/order/show/<%= order.id %>" class="btn btn-sm btn-primary btn-cons pull-right">View</a></td>
+            </tr>
+            <% })%>
+        </table>
+
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>
+
+

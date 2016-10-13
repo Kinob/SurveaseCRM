@@ -1,0 +1,44 @@
+<div class="content">
+    <!-- START JUMBOTRON -->
+    <div class="jumbotron" data-pages="parallax">
+        <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+            <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="/" class="active">Dashboard</a></li>
+                    <li>Products</li>
+                </ul>
+                <!-- END BREADCRUMB -->
+            </div>
+        </div>
+    </div>
+    <!-- END JUMBOTRON -->
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+
+        <a href="/product/new" class="btn btn-primary btn-cons">Add new product</a>
+
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+
+            <% _.each(products, function(product) { %>
+            <tr data-id="<%= product.id %>" data-model="product">
+                <td><%= product.id %></td>
+                <td><%= product.name %></td>
+                <td><%= product.price %></td>
+                <td><a href="/product/destroy/<%= product.id %>" class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a href="/product/edit/<%= product.id %>" class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a href="/product/show/<%= product.id %>" class="btn btn-sm btn-primary btn-cons pull-right">View</a></td>
+            </tr>
+            <% })%>
+        </table>
+
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>
+
