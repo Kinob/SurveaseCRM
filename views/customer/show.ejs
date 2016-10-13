@@ -5,11 +5,50 @@
             <div class="inner">
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
-                    <li><a href="/" class="active">Dashboard</a></li>
-                    <li><a href="/customer/" class="active">Customers</a></li>
-                    <li><%= customer. first_name%> <%= customer.last_name%></li>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/customer/">Customers</a></li>
+                    <li><a href="/customer/<%= customer.id %>"
+                           class="active"><%= customer.first_name %> <%= customer.last_name %></a></li>
                 </ul>
                 <!-- END BREADCRUMB -->
+
+                <div class="container-md-height m-b-20">
+                    <div class="row row-md-height">
+                        <div class="col-lg-3 col-md-3 col-md-height col-middle">
+
+                            <div class="full-height">
+                                <div class="panel-body">
+                                    <img class="demo-mw-500"
+                                         src="https://dummyimage.com/300x300/777/fff.png&text=Customer+profile+img"
+                                         alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-9 col-md-height col-md-9 col-top">
+
+                            <div class="panel panel-transparent">
+                                <div class="panel-heading">
+                                    <div class="panel-title">Customer info
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <h3><%= customer.first_name %> <%= customer.last_name %></h3>
+                                    <p>
+                                        E-mail: <%= customer.email %><br/>
+                                        Language: <%= customer.language %>
+
+                                    </p>
+                                    <p>
+                                        <a href="/customer/edit/<%= customer.id %>" class="btn btn-primary btn-cons">Edit</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -17,13 +56,6 @@
     <!-- START CONTAINER FLUID -->
     <div class="container-fluid container-fixed-lg">
         <!-- BEGIN PlACE PAGE CONTENT HERE -->
-        <h3>First name: <%= customer.first_name %></h3>
-        <h3>Last name: <%= customer.last_name %></h3>
-        <h3>Email: <%= customer.email %></h3>
-        <h3>Language: <%= customer.language %></h3>
-
-        <a href="/customer/edit/<%= customer.id %>" class="btn btn-primary btn-cons">Edit</a>
-        <hr>
         <form action="/order/new" method="post">
             <div class="row">
                 <input type="hidden" class="form-control" value="<%= customer.id %>" name="owner" required>
@@ -47,7 +79,7 @@
                 <td><%= order.total %></td>
                 <td><a href="/order/destroy/<%= order.id %>" class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a href="/order/edit/<%= order.id %>" class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a href="/order/show/<%= order.id %>" class="btn btn-sm btn-primary btn-cons pull-right">View</a></td>
             </tr>
-            <% })%>
+            <% });;;;;;;; %>
         </table>
 
         <!-- END PLACE PAGE CONTENT HERE -->
