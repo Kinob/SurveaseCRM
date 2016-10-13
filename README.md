@@ -1,3 +1,7 @@
 # SurveaseCRM
 
-a [Sails](http://sailsjs.org) application
+Survease - simple CRM application on a 
+a [Sails.js](http://sailsjs.org) framework for hotels.
+
+
+
