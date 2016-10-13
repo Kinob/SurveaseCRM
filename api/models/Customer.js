@@ -31,6 +31,10 @@ module.exports = {
     orders: {
       collection: 'order',
       via: 'owner'
+    },
+    visits: {
+      collection: 'visit',
+      via: 'owner'
     }
   }
 };
