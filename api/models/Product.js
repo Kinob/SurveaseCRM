@@ -17,8 +17,7 @@ module.exports = {
       required: true
     },
     owner: {
-      model: 'order',
-      required: true
+      model: 'order'
     }
   }
 };

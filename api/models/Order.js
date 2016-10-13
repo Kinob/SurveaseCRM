@@ -16,10 +16,10 @@ module.exports = {
       type: 'float',
       required: true
     },
-    /*products: {
+      products: {
       collection: 'product',
       via: 'owner'
-    }*/
+      },
     owner: {
       model: 'customer',
       required: true

@@ -21,6 +21,18 @@
 
         <form role="form" action="/order/create" method="post">
             <input type="hidden" class="form-control" value="<%= customer.id %>" name="owner">
+
+            <div class="row">
+                <div class="col-sm-126">
+                    <div class="form-group form-group-default">
+                        <label>Choose product</label>
+                        <select class="form-control">
+                            <option>1</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group form-group-default">

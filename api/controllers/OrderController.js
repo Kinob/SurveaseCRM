@@ -15,6 +15,7 @@ module.exports = {
             });
         });
     },
+
     create: function (req, res, next) {
         Order.create( req.params.all(), function orderCreate(err, order) {
             if (err) return next(err);
@@ -24,5 +25,6 @@ module.exports = {
             res.redirect('/customer/show/' + order.owner);
         });
     }
+
 };
 

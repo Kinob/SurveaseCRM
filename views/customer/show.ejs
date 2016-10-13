@@ -56,63 +56,116 @@
     <!-- START CONTAINER FLUID -->
     <div class="container-fluid container-fixed-lg">
         <!-- BEGIN PlACE PAGE CONTENT HERE -->
-        <form action="/order/new" method="post">
-            <div class="row">
-                <input type="hidden" class="form-control" value="<%= customer.id %>" name="owner" required>
-                <input type="submit" value="Add new order" class="btn btn-primary btn-cons">
+        <div class="row p-b-30">
+            <div class="col-md-1">
+                <form action="/order/new" method="post">
+                    <div class="row">
+                        <input type="hidden" class="form-control" value="<%= customer.id %>" name="owner" required>
+                        <input type="submit" value="Add new order" class="btn btn-primary btn-cons">
+                    </div>
+                </form>
             </div>
-        </form>
-
-        <form action="/visit/new" method="post">
-            <div class="row">
-                <input type="hidden" class="form-control" value="<%= customer.id %>" name="owner" required>
-                <input type="submit" value="Add new visit" class="btn btn-primary btn-cons">
+            <div class="col-md-1">
+                <form action="/visit/new" method="post">
+                    <div class="row">
+                        <input type="hidden" class="form-control" value="<%= customer.id %>" name="owner" required>
+                        <input type="submit" value="Add new visit" class="btn btn-primary btn-cons">
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
 
-        <hr>
-        <h3>Visits</h3>
-        <table class="table">
-            <tr>
-                <th>Check in</th>
-                <th>Check out</th>
-                <th>Agency name</th>
-                <th>Hotel name</th>
-                <th></th>
-            </tr>
+        <div class="panel">
+            <ul class="nav nav-tabs nav-tabs-simple">
+                <li class="active">
+                    <a data-toggle="tab" href="#tab2hellowWorld">Stay history</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#tab2FollowUs">Order history</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#tab2Inspire">Survey history</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab2hellowWorld">
+                    <div class="row column-seperation">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <tr>
+                                    <th>Check in</th>
+                                    <th>Check out</th>
+                                    <th>Agency name</th>
+                                    <th>Hotel name</th>
+                                    <th></th>
+                                </tr>
 
-            <% _.each(customer.visits, function(visit) { %>
-            <tr data-id="<%= visit.id %>" data-model="visit">
-                <td><%= visit.checkin %></td>
-                <td><%= visit.checkout %></td>
-                <td><%= visit.agency_name %></td>
-                <td><%= visit.hotel_name %></td>
-                <td><a href="/visit/destroy/<%= visit.id %>"
-                       class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a href="/visit/edit/<%= visit.id %>"
-                                                                                      class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a
-                            href="/visit/show/<%= visit.id %>"
-                            class="btn btn-sm btn-primary btn-cons pull-right">View</a></td>
-            </tr>
-            <% });;;;;;;;; %>
-        </table>
+                                <% _.each(customer.visits, function(visit) { %>
+                                <tr data-id="<%= visit.id %>" data-model="visit">
+                                    <td><%= visit.checkin %></td>
+                                    <td><%= visit.checkout %></td>
+                                    <td><%= visit.agency_name %></td>
+                                    <td><%= visit.hotel_name %></td>
+                                    <td><a href="/visit/destroy/<%= visit.id %>"
+                                           class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a
+                                                href="/visit/edit/<%= visit.id %>"
+                                                class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a
+                                                href="/visit/show/<%= visit.id %>"
+                                                class="btn btn-sm btn-primary btn-cons pull-right">View</a></td>
+                                </tr>
+                                <% });;;;;;;;; %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab2FollowUs">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Cost</th>
+                                    <th></th>
+                                </tr>
 
-        <hr>
-        <h3>Orders</h3>
-        <table class="table">
-            <tr>
-                <th>Name</th>
-                <th>Cost</th>
-                <th></th>
-            </tr>
+                                <% _.each(customer.orders, function(order) { %>
+                                <tr data-id="<%= order.id %>" data-model="order">
+                                    <td><%= order.name %></td>
+                                    <td><%= order.total %></td>
+                                    <td><a href="/order/destroy/<%= order.id %>"
+                                           class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a
+                                                href="/order/edit/<%= order.id %>"
+                                                class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a
+                                                href="/order/show/<%= order.id %>"
+                                                class="btn btn-sm btn-primary btn-cons pull-right">View</a></td>
+                                </tr>
+                                <% });;;;;;; %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab2Inspire">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>
+                                Follow us &amp; get updated!
+                            </h3>
+                            <p>
+                                Instantly connect to what's most important to you. Follow your
+                                friends, experts, favorite celebrities, and breaking news.
+                            </p><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <% _.each(customer.orders, function(order) { %>
-            <tr data-id="<%= order.id %>" data-model="order">
-                <td><%= order.name %></td>
-                <td><%= order.total %></td>
-                <td><a href="/order/destroy/<%= order.id %>" class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a href="/order/edit/<%= order.id %>" class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a href="/order/show/<%= order.id %>" class="btn btn-sm btn-primary btn-cons pull-right">View</a></td>
-            </tr>
-            <% });;;;;;; %>
-        </table>
+        <div class="row p-b-20">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+
 
         <!-- END PLACE PAGE CONTENT HERE -->
     </div>
