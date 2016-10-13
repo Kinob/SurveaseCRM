@@ -1,0 +1,34 @@
+<div class="content">
+    <!-- START JUMBOTRON -->
+    <div class="jumbotron" data-pages="parallax">
+        <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+            <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/order/">Customers</a></li>
+                    <li><a href="/order/<%= order.id %>"
+                           class="active"><%= order.id %></a></li>
+                </ul>
+                <!-- END BREADCRUMB -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END JUMBOTRON -->
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <%= order.id %><br>
+        <%= order.name %><br>
+        <%= order.total %><br/>
+        <%= order.createdAt %><br/>
+        <%= order.owner.first_name %>
+        <%= order.owner.last_name %>
+
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>
+
+

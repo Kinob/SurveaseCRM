@@ -1,0 +1,60 @@
+<div class="content">
+    <!-- START JUMBOTRON -->
+    <div class="jumbotron" data-pages="parallax">
+        <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+            <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/order/">Orders</a></li>
+                    <li><a href="/order/show/<%= order.id %>" class="active"><%= order.id %></a></li>
+                    <li>Edit</li>
+                </ul>
+                <!-- END BREADCRUMB -->
+            </div>
+        </div>
+    </div>
+    <!-- END JUMBOTRON -->
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <h1>Edit order</h1>
+
+        <form role="form" action="/order/update/<%= order.id %>" method="post">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group form-group-default">
+                        <label>Name</label>
+                        <input type="text" class="form-control" value="<%= order.name %>" name="name" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group form-group-default">
+                        <label>Total</label>
+                        <input type="text" class="form-control" value="<%= order.total %>" name="total" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group form-group-default">
+                        <label>Order owner</label>
+
+                        <select name="owner">
+
+                            <option value="1">1</option>
+
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="Update Order" class="btn btn-primary btn-cons">
+        </form>
+
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>

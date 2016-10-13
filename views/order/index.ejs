@@ -1,0 +1,44 @@
+<div class="content">
+    <!-- START JUMBOTRON -->
+    <div class="jumbotron" data-pages="parallax">
+        <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+            <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/order/" class="active">Orders</a></li>
+                </ul>
+                <!-- END BREADCRUMB -->
+            </div>
+        </div>
+    </div>
+    <!-- END JUMBOTRON -->
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+                <th></th>
+            </tr>
+
+            <% _.each(orders, function(order) { %>
+            <tr data-id="<%= order.id %>" data-model="order">
+                <td><%= order.name %></td>
+                <td><%= order.total %></td>
+                <td><a href="/order/destroy/<%= order.id %>"
+                       class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a href="/order/edit/<%= order.id %>"
+                                                                                      class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a
+                            href="/order/show/<%= order.id %>"
+                            class="btn btn-sm btn-primary btn-cons pull-right">View</a></td>
+            </tr>
+            <% });;;;;;; %>
+        </table>
+
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>
+
