@@ -23,6 +23,16 @@ module.exports = {
             /* res.redirect('/order/'); */
             res.redirect('/customer/show/' + visit.owner);
         });
+    },
+
+    index: function (req, res, next) {
+        Visit.find(function foundVisits(err, visits) {
+            if (err) return next(err);
+
+            res.view({
+                visits: visits
+            });
+        });
     }
 };
 

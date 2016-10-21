@@ -25,6 +25,33 @@
         <%= order.createdAt %><br/>
         <%= order.owner.first_name %>
         <%= order.owner.last_name %>
+        <hr>
+
+
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>E-mail</th>
+                <th>Language</th>
+                <th></th>
+            </tr>
+
+            <% _.each(customers, function(customer) { %>
+            <tr data-id="<%= customer.id %>" data-model="customer">
+                <td><%= customer.id %></td>
+                <td><%= customer.first_name %></td>
+                <td><%= customer.last_name %></td>
+                <td><%= customer.email %></td>
+                <td><%= customer.language %></td>
+                <td><a href="/customer/destroy/<%= customer.id %>" class="btn btn-sm btn-danger btn-cons pull-right">Delete</a><a
+                            href="/customer/edit/<%= customer.id %>" class="btn btn-sm btn-info btn-cons pull-right">Edit</a><a
+                            href="/customer/show/<%= customer.id %>" class="btn btn-sm btn-primary btn-cons pull-right">View</a>
+                </td>
+            </tr>
+            <% });;;;;;;;; %>
+        </table>
 
         <!-- END PLACE PAGE CONTENT HERE -->
     </div>
