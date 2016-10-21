@@ -18,7 +18,7 @@ module.exports = {
         },
         responses: {
             collection: 'respons',
-            via: 'owner'
+            via: 'survey_owner'
         }
     }
 
